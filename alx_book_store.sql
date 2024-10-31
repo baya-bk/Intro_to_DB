@@ -1,3 +1,7 @@
+-- Creating alx_book_store Database
+CREATE DATABASE IF NOT EXISTS alx_book_store;
+USE alx_book_store;
+
 -- Creating Authors table
 CREATE TABLE Authors (
     author_id INT PRIMARY KEY,
