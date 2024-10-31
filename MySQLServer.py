@@ -1,5 +1,5 @@
 import mysql.connector
-from mysql.connector import Error
+
 config = {
     'user': 'root',
     'password': '1234bbq@#',
@@ -22,7 +22,7 @@ def create_database():
 
             cursor.close()
 
-    except Error as e:
+    except mysql.connector.Error as e:
         print(f"Error: {e}")
 
     finally:
