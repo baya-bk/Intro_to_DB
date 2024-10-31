@@ -1,23 +1,26 @@
 import mysql.connector
 from mysql.connector import Error
-
 config = {
     'user': 'root',
     'password': '1234bbq@#',
     'host': 'localhost',
-    'database': 'alx_book_store'
 }
 
 
-def create_books_table():
+def create_database():
+
     try:
         # Establish a connection to the MySQL server
         connection = mysql.connector.connect(**config)
 
         if connection.is_connected():
-            print("atabase 'alx_book_store' created successfully!")
+            print("Database connection successful")
 
             cursor = connection.cursor()
+            cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+            print("Database 'alx_book_store' created successfully!")
+
+            cursor.close()
 
     except Error as e:
         print(f"Error: {e}")
@@ -30,4 +33,4 @@ def create_books_table():
             print("MySQL connection is closed.")
 
 
-create_books_table()
+create_database()
